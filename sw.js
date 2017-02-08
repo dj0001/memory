@@ -1,6 +1,6 @@
 'use strict';
 
-const version = 'v1.01';
+const version = 'v1.02';
 const staticCachePrefix = 'memory-pd1-static-';
 const staticCacheName = staticCachePrefix + version;
 
@@ -11,7 +11,7 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 './',
                 'index.htm',
-                'bilddeck.jpg'
+                'memory.png'
             ]);
         }).then(() => {
             // activate the new service worker immediately, without waiting for next load.
