@@ -41,6 +41,7 @@ img[name] {cursor:help} img[style*="opacity: 0"] {cursor:pointer}
 .front{
 	color: #fff;
 	background-color: #fff;  /* #000; */
+	filter: grayscale(100%);
 }
 
 
@@ -181,7 +182,7 @@ for(i = 0; i < num*2; i++)
 {l=Math.floor(i/2); j=l; k=-k  // j=i für paare 
 if (z==0) a += '<tr>'
 a += '<td onclick="mclick('+i+')"><div style="height:'+imgh+'px;width:'+imgw+'px" id="d'+i+'" class="block rotated">'
-+'<div class="front side"><img height='+imgh+' width='+imgw+' src="bilddeck.jpg" alt=""></div>'
++'<div class="front side"><img height='+imgh+' width='+imgw+' src="memory.png" alt=""></div>'  //bilddeck.jpg
 +'<div class="back side" style="height:'+imgh+'px;width:'+imgw+'px">'
 +'<img id='+k*(l+1)  //div
 a += (!imgasp[j]) ? ' height='+imgh : ' width='+imgw   // width='+imgw+'
