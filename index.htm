@@ -80,7 +80,50 @@ var ld;  //Bilder geladen
 var t; //timer
 var tb,luck
 
-//var rssReader = {};  //removed
+var rssReader = {
+    // initialization function
+    init : function() {
+             // getting necessary variables
+            var rssUrl = unescape(location.search.slice(1))
+            num+=5  //Begrenzung (num<15)?num:15
+            //var num = "10" //containers[i].getAttribute('rss_num');
+
+            // creating temp scripts which will help us to transform XML (RSS) to JSON
+            var url = encodeURIComponent(rssUrl);
+            //var googUrl = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num='+num+'&q='+url+'&callback=rssReader.parse&context='//+id;
+            var googUrl = 'https://api.rss2json.com/v1/api.json?callback=rssReader.parse&rss_url='+url
+	    var script = document.createElement('script');
+            script.setAttribute('type','text/javascript');
+            script.setAttribute('charset','utf-8');
+            script.setAttribute('src',googUrl);
+            document.getElementsByTagName("body")[0].appendChild(script);  //containers[i]
+    },
+
+    // parsing of results by google
+    parse : function(context, data) {
+        // creating list of elements
+
+        // also creating its childs (subitems)
+        //if (!data) {alert("No images\nchoose another feed"); return}
+        var entries = context.items  //data.feed.entries
+        if (entries.length > 2 ) num=entries.length; else {alert("Not enough images"); return}  //Anpassung
+        //title = data.feed.title
+        for (var i=0; i<num; i++) {
+        //var zuf = Math.floor(Math.random()*entries.length)
+        //imagerss = entries[zuf].mediaGroups[0].contents[0].url;  //Zufallsbild
+        imgtitle[i] = entries[i].title //link
+        imglink[i] = entries[i].link
+        if (entries[i].mediaGroups) 
+        {imgrss[i] = entries[i].mediaGroups[0].contents[0].thumbnails[0].url
+        if (entries[i].mediaGroups[0].contents[0].thumbnails[0].width <= entries[i].mediaGroups[0].contents[0].thumbnails[0].height) {imgh=imgw;  //quadr.
+        imgasp[i] = 1} }
+        else if (entries[i].content.match(/<img src=".+/))  // pinterest
+        {imgrss[i] = entries[i].content.match(/<img src=".+/)[0].replace(/<img src="/, "").replace(/".*/, "")}
+        else {alert("No Media RSS"); return}
+        }
+        schreiben()
+    }
+};
 
 function zudecken()
 {document.getElementById("d"+xa).className = "block";document.getElementById("d"+xb).className = "block";
