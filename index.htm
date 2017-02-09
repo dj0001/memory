@@ -106,7 +106,7 @@ var rssReader = {
         // also creating its childs (subitems)
         //if (!data) {alert("No images\nchoose another feed"); return}
         var entries = context.items  //data.feed.entries
-        if (entries.length > 2 ) num=entries.length; else {alert("Not enough images"); return}  //Anpassung
+        if (entries.length > 2 ) num=num; else {alert("Not enough images"); return}  //Anpassung  //entries.length
         //title = data.feed.title
         for (var i=0; i<num; i++) {
         //var zuf = Math.floor(Math.random()*entries.length)
