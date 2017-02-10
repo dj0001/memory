@@ -106,7 +106,7 @@ var rssReader = {
         // also creating its childs (subitems)
         //if (!data) {alert("No images\nchoose another feed"); return}
         var entries = context.items  //data.feed.entries
-        if (entries.length > 2 ) num=entries.length; else {alert("Not enough images"); return}  //Anpassung
+        if (entries.length > 2 ) num=Math.min(entries.length,num); else {alert("Not enough images"); return}  //Anpassung entries.length
         //title = data.feed.title
         for (var i=0; i<num; i++) {
         //var zuf = Math.floor(Math.random()*entries.length)
@@ -138,7 +138,7 @@ if (Check!=null)
  {if (localStorage) localStorage.suchen=Check;
 window.location.href=window.location.href+
 '?http://picasaweb.google.com/data/feed/base/all?alt=rss&kind=photo&access=public&filter=1&q='+Check+'&imgmax=1600&hl=de'
-// '?http://instagram.com/tags/'+Check+'/feed/recent.rss'
+// 'https://websta.me/rss/tag/'+Check  // '?http://instagram.com/tags/'+Check+'/feed/recent.rss'
 // '?http://api.flickr.com/services/feeds/photos_public.gne?tags='+Check+'&format=rss2'
  } 
 }
