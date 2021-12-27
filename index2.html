@@ -5,10 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Memory</title>
 	<meta name="author" content="DJ">
+	<link rel="icon" sizes="192x192" href="memory.png">
 
 <style type="text/css">
 img{border:0; border-radius:5px;}
 img[name] {cursor:help} img[style*="opacity: 0"] {cursor:pointer}
+.front>img {filter:grayscale(100%)} /* */
 
 .block {
 	position: relative;
@@ -223,7 +225,7 @@ for(i = 0; i < num*2; i++)
 {l=Math.floor(i/2); j=l; k=-k  // j=i für paare 
 if (z==0) a += '<tr>'
 a += '<td onclick="mclick('+i+')"><div style="height:'+imgh+'px;width:'+imgw+'px" id="d'+i+'" class="block rotated">'
-+'<div class="front side"><img height='+imgh+' width='+imgw+' src="bilddeck.jpg" alt=""></div>'
++'<div class="front side"><img height='+imgh+' width='+imgw+' src="memory.png" alt=""></div>'  //bilddeck.jpg
 +'<div class="back side" style="height:'+imgh+'px;width:'+imgw+'px">'
 +'<img id='+k*(l+1)  //div
 a += (!imgasp[j]) ? ' height='+imgh : ' width='+imgw   // width='+imgw+'
