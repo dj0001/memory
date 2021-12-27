@@ -124,7 +124,7 @@ function zudecken()
 {document.getElementById("d"+xa).className = "block";document.getElementById("d"+xb).className = "block";
  document.getElementsByName("bild")[xa].style.opacity=1;document.getElementsByName("bild")[xb].style.opacity=1}  //bekannt
 
-function laden() {
+function laden() { return true  //disabled
 if (!ld) { //no images
 ld=1; 
 Check = prompt( ((navigator.language||navigator.browserLanguage).match(/de/))?"Suche ein Picasa Memory von Fotos:":"Search a Picasa Memory from photos:", (localStorage&&localStorage.suchen)?localStorage.suchen:"" );
