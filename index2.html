@@ -316,7 +316,7 @@ schreiben()
 <script type="text/javascript" src="shake.js"></script>
 
 </head>
-<body onload="if(location.search) rssReader.init();else schreiben()">
+<body onload="if(location.search) rssReader.init();else schreiben()" oncontextmenu="body.insertAdjacentHTML('afterend', '<input type=file id=fileElem multiple hidden onchange=handleFiles(this.files)>'); fileElem.click(); return false">
 ... wird geladen
 <!-- schreiben -->
 
