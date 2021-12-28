@@ -126,9 +126,11 @@ function zudecken()
 {document.getElementById("d"+xa).className = "block";document.getElementById("d"+xb).className = "block";
  document.getElementsByName("bild")[xa].style.opacity=1;document.getElementsByName("bild")[xb].style.opacity=1}  //bekannt
 
-function laden() { return true  //disabled
+function laden() { //return true  //disabled
 if (!ld) { //no images
 ld=1; 
+document.body.insertAdjacentHTML('beforeend','<input type=file id=fileElem multiple hidden onchange=handleFiles(this.files) accept=image/*><button onclick="fileElem.click()">select</button>')
+/*
 Check = prompt( ((navigator.language||navigator.browserLanguage).match(/de/))?"Suche ein Picasa Memory von Fotos:":"Search a Picasa Memory from photos:", (localStorage&&localStorage.suchen)?localStorage.suchen:"" );
 if (Check!=null) 
  {if (localStorage) localStorage.suchen=Check;
@@ -137,6 +139,7 @@ window.location.href=window.location.href+
 // '?http://instagram.com/tags/'+Check+'/feed/recent.rss'
 // '?http://api.flickr.com/services/feeds/photos_public.gne?tags='+Check+'&format=rss2'
  } 
+*/
 }
 }
 
