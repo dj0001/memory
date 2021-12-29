@@ -78,6 +78,17 @@ var ld;  //Bilder geladen
 var t; //timer
 var tb,luck
 
+function m3u(){
+ fetch(location.search.slice(1))  //?https://dj0001.github.io/memory/test.m3u
+ .then(response => {
+  return response.text()})
+ .then(text => {
+ imgrss=text.split(/\r?\n/)
+ num=imgrss.length
+ schreiben() 
+ })
+}
+
 var rssReader = {
     // initialization function
     init : function() {
@@ -321,7 +332,7 @@ schreiben()
 <script type="text/javascript" src="shake.js"></script>
 
 </head>
-<body onload="if(location.search) rssReader.init();else schreiben()" oncontextmenu="body.insertAdjacentHTML('afterend', '<input type=file id=fileElem multiple hidden onchange=handleFiles(this.files) accept=image/*>'); fileElem.click(); return false">
+<body onload="if(location.search) m3u();else schreiben()" oncontextmenu="body.insertAdjacentHTML('afterend', '<input type=file id=fileElem multiple hidden onchange=handleFiles(this.files) accept=image/*>'); fileElem.click(); return false"> <!-- rssReader.init(); -->
 ... wird geladen
 <!-- schreiben -->
 
